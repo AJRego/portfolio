@@ -236,7 +236,9 @@ function bodyScrollingToggle() {
     // get the project category
     const category = portfoioItems[itemIndex].getAttribute("data-category");
     // set the project category
-    popup.querySelector(".pp-project-category").innerHTML = category.split("-").join(" ");
+    popup.querySelector(".pp-project-category").innerHTML = category
+      .split("-")
+      .join(" ");
   }
 
   projectDeatilsBtn.addEventListener("click", () => {
@@ -322,3 +324,11 @@ function bodyScrollingToggle() {
     }
   });
 })();
+
+window.addEventListener("load", () => {
+  // preloader
+  document.querySelector(".preloader").classList.add("fade-out");
+  setTimeout(() => {
+    document.querySelector(".preloader").style.display = "none";
+  }, 600);
+});
