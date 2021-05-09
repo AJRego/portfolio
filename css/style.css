@@ -1100,3 +1100,24 @@ testimonial section
   font-size: 16px;
   color: var(--text-black-700);
 }
+.testimonial-section .testi-slider-nav {
+  margin-top: 30px;
+  text-align: center;
+}
+.testimonial-section .testi-slider-nav span {
+  height: 40px;
+  width: 40px;
+  color: var(--main-color);
+  display: inline-block;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 50%;
+  margin: 0 4px;
+}
+.testimonial-section .testi-slider-nav span:after {
+  border-radius: 50%;
+}
+.testimonial-section .testi-slider-nav span i {
+  line-height: 40px;
+}
