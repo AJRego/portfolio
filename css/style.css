@@ -30,7 +30,7 @@ body {
   overflow-x: hidden;
   background-color: var(--bg-black-50);
 }
-body.stop-scrolling {
+body.hidden-scrolling {
   overflow-y: hidden;
 }
 *:not(i) {
