@@ -1106,7 +1106,7 @@ testimonial section
   font-weight: 600;
   font-size: 16px;
   color: var(--text-black-700);
-  text-transform: capitalize
+  text-transform: capitalize;
 }
 .testimonial-section .testi-slider-nav {
   margin-top: 30px;
@@ -1128,4 +1128,43 @@ testimonial section
 }
 .testimonial-section .testi-slider-nav span i {
   line-height: 40px;
+}
+
+/*---------------------
+contact section
+---------------------*/
+.contact-section {
+  padding: 80px 0 80px;
+  min-height: 100vh;
+}
+.contact-section .contact-item {
+  flex: 0 0 33.33%;
+  max-width: 33.33%;
+  padding: 15px;
+  display: flex;
+}
+.contact-section .contact-item-inner {
+  padding: 30px 15px;
+  text-align: center;
+  border-radius: 5px;
+  width: 100%;
+}
+.contact-section .contact-item i {
+  font-size: 25px;
+  color: var(--main-color);
+}
+.contact-section .contact-item span {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-black-700);
+  margin: 15px 0 10px;
+  text-transform: capitalize;
+}
+.contact-section .contact-item p {
+  font-size: 16px;
+  color: var(--text-black-600);
+  line-height: 26px;
+  margin: 0;
+  word-break: break-word;
 }
