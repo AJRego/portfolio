@@ -217,10 +217,10 @@ function bodyScrollingToggle() {
   function popupDetails() {
     // if portfolio-item-details no exists
     if (!portfoioItems[itemIndex].querySelector(".portfolio-item-details")) {
-      projectDeatilsBtn.display = "none";
+      projectDeatilsBtn.style.display = "none";
       return; //end function execution
     }
-    projectDeatilsBtn.display = "block";
+    projectDeatilsBtn.style.display = "block";
     // get the project details
     const details = portfoioItems[itemIndex].querySelector(
       ".portfolio-item-details"
@@ -234,11 +234,9 @@ function bodyScrollingToggle() {
     // set the project title
     popup.querySelector(".pp-title h2").innerHTML = title;
     // get the project category
-    const category = portfoioItems[itemIndex].querySelector("data-category");
+    const category = portfoioItems[itemIndex].getAttribute("data-category");
     // set the project category
-    popup.querySelector(".pp-project-category").innerHTML = category
-      .split("-")
-      .join(" ");
+    popup.querySelector(".pp-project-category").innerHTML = category.split("-").join(" ");
   }
 
   projectDeatilsBtn.addEventListener("click", () => {
