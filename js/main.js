@@ -1,3 +1,60 @@
+/* ------------------- navigation menu ------------------------- */
+
+(() => {
+  const hamburgerBtn = document.querySelector(".hamburger-btn");
+  const navMenu = document.querySelector(".nav-menu");
+  const closeNavBtn = navMenu.querySelector(".close-nav-menu");
+
+  hamburgerBtn.addEventListener("click", showNavMenu);
+  closeNavBtn.addEventListener("click", hideNavMenu);
+
+  function showNavMenu() {
+    navMenu.classList.add("open");
+    bodyScrollingToggle();
+  }
+
+  function hideNavMenu() {
+    navMenu.classList.remove("open");
+    fadeOutEffect();
+    bodyScrollingToggle();
+  }
+
+  function fadeOutEffect() {
+    document.querySelector(".fade-out-effect").classList.add("active");
+    setTimeout(() => {
+      document.querySelector(".fade-out-effect").classList.remove("active");
+    }, 300);
+  }
+
+  // attach an event handler to document
+  document.addEventListener("click", (event) => {
+    if (event.target.classList.contains("link-item")) {
+      if (event.target.hash !== "") {
+        event.preventDefault();
+        const hash = event.target.hash;
+        //deactive existing active 'section'
+        document.querySelector(".section.active").classList.add("hide");
+        document.querySelector(".section.active").classList.remove("active");
+        // activate new section
+        document.querySelector(hash).classList.add("active");
+        document.querySelector(hash).classList.remove("hide");
+        // deactive existing active navigation menu 'link-item'
+        navMenu
+          .querySelector(".active")
+          .classList.add("outer-shadow", "hover-in-shadow");
+        navMenu
+          .querySelector(".active")
+          .classList.remove("active", "inner-shadow");
+        // activate new navigation menu 'link-item'
+        event.target.classList.add("active", "inner-shadow");
+        event.target.classList.remove("outer-shadow", "hover-in-shadow");
+        // hide navigation menu
+        hideNavMenu();
+      }
+    }
+  });
+})();
+
 /* ------------------- about section tabs ------------------------- */
 
 (() => {
@@ -201,7 +258,9 @@ function bodyScrollingToggle() {
   const nextBtn = document.querySelector(".testi-slider-nav .next");
   const activeSlide = sliderContainer.querySelector(".testi-item.active");
 
-  let slideIndex = Array.from(activeSlide.parentElement.children).indexOf(activeSlide);
+  let slideIndex = Array.from(activeSlide.parentElement.children).indexOf(
+    activeSlide
+  );
 
   // set width of all slides
   slides.forEach((slide) => {
@@ -230,11 +289,24 @@ function bodyScrollingToggle() {
 
   function slider() {
     // deactivate existing active slides
-    sliderContainer.querySelector(".testi-item.active").classList.remove("active");
+    sliderContainer
+      .querySelector(".testi-item.active")
+      .classList.remove("active");
     // activate new slide
     slides[slideIndex].classList.add("active");
     sliderContainer.style.marginLeft = -(slideWidth * slideIndex) + "px";
   }
   slider();
+})();
 
+/* ------------------- hide all sections except active ------------------------- */
+
+(() => {
+  const sections = document.querySelectorAll(".section");
+
+  sections.forEach((section) => {
+    if (!section.classList.contains("active")) {
+      section.classList.add("hide");
+    }
+  });
 })();
